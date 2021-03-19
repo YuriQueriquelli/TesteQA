@@ -1,4 +1,5 @@
 from selenium import webdriver
+from time import sleep
 
 driver = webdriver.Chrome()
 
@@ -15,9 +16,13 @@ inputPassword.send_keys('secret_sauce')
 buttonLogin = driver.find_element_by_id('login-button')
 buttonLogin.click()
 
+sleep(3)
+
 #low to high
 options = driver.find_element_by_xpath('//*[@id="inventory_filter_container"]/select')
 options.send_keys('Price (low to high)')
+
+sleep(3)
 
 #Itens page
 first_item = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/div/div[2]/div/div[1]/div[3]/button')
