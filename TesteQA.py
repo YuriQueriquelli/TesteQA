@@ -1,20 +1,16 @@
 from selenium import webdriver
 from time import sleep
+from selenium.webdriver import Chrome
+from Page import Ecommerce
 
 driver = webdriver.Chrome()
 
 link = 'https://www.saucedemo.com/'
 driver.get(link)
 
-#login page
-inputUser = driver.find_element_by_id('user-name')
-inputUser.send_keys('standard_user')
+login = Ecommerce(driver)
 
-inputPassword = driver.find_element_by_id('password')
-inputPassword.send_keys('secret_sauce')
-
-buttonLogin = driver.find_element_by_id('login-button')
-buttonLogin.click()
+login.login("standard_user", "secret_sauce")
 
 sleep(3)
 
